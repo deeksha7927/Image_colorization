@@ -7,26 +7,21 @@
 <h3>Description</h3>
   
   </div>
-  GANs are the state-of-the-art machine learning models which can generate new data instances from existing ones. They use a very interesting technique, inspired from the Game   Theory, to generate realistic samples.
-
+ GANs are the state-of-the-art machine learning models which can generate new data instances from existing ones. They use a very interesting technique, inspired from the Game   Theory, to generate realistic samples.
 In this project, we'll use GANs to colorize a grayscale ( B/W ) image. In addition to that, our generator model will have a structure similar to that of a UNet i.e the one with skip connections.
- <div align="center">
- <img src="images/Home.JPG" />
-  </div>
+ </div>
 
 
- <h3>Meditation</h3>
+
+ <h3>The GAN</h3>
  <div align="center">
+  A. Generator
+Our generator ( represented as  G  ) will take in grayscale image  x  and produce a RGB image  G(x) . Note,  x  will be a tensor of shape  ( batch size , 120 , 120 , 1 )  and the output  G(x)  will have a shape  ( batch size , 120 , 120 , 3 ) .Our generator will have a encoder-decoder structure, similar to the UNet architecture. Additionally, we use Dilated convolutions to have a larger receptive field.
+
+
+B. Discriminator
+The discriminator model, represented as  D , will take in the real image  y  ( from the training data ) and the generated image  G(x)  ( from the generator ) to output two probabilities.We train the discriminator in such a manner that is able to differentiate the real images and the generated images. So, we train the model such that  y  produces a output of  1.0  and  G(x)  produces an output of  0.0 .
   
-https://user-images.githubusercontent.com/66422118/149760760-2527c4a0-87e7-4b30-9e00-34dfe8fc5f9a.mp4
-   
- </div>
- <h3>Blog</h3>
- <div align="center">
- <img src= "images/Blog.JPG"/>
- </div>
- 
- 
-  <h3> 🖲️Tech Stack🖱</h3>
- 
- * Frontend (HTML,CSS,JS)
+  
+
+
